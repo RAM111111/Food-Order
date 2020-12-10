@@ -67,6 +67,10 @@ table tr td{
 .btn-danger:hover{
   background-color:#e66767;
 }
+
+.tbl-30{
+  width: 30%;
+}
 /* main */
 .menu{
   border-bottom: 1px solid grey;
