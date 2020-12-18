@@ -71,6 +71,13 @@ table tr td{
 .tbl-30{
   width: 30%;
 }
+
+.success{
+  color: #b8e994;
+}
+.error{
+  color: #e55039;
+}
 /* main */
 .menu{
   border-bottom: 1px solid grey;
