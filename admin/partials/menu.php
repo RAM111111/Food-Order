@@ -1,3 +1,5 @@
+<?php include('../conf/constants.php') ?>
+
 <html>
 <head>
 <title>Food Order</title>
