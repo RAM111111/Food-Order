@@ -16,6 +16,11 @@ if(isset($_SESSION['login'])){
   echo $_SESSION['login'];
   unset($_SESSION['login']);
 }
+
+if(isset($_SESSION['nologin'])){
+  echo $_SESSION['nologin'];
+  unset($_SESSION['nologin']);
+}
        ?>
       <br><br>
       <form class="text-center" action="" method="post">
@@ -48,7 +53,8 @@ password='$password1'
 
   if($count==1){
     $_SESSION['login'] = "<div class='success '> login successfuly</div>";
-    header('location:'.URL.'admin/');
+    $_SESSION['user'] = $user_name1;
+    header('location:'.URL.'admin/index.php');
   }else {
     $_SESSION['login'] = "<div class='error text-center'> login err </div>";
     header('location:'.URL.'admin/login.php');
