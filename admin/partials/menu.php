@@ -1,6 +1,6 @@
 <?php
 include('../conf/constants.php');
-include('login-check.php');
+include('../admin/partials/login-check.php');
  ?>
 
 <html>
@@ -14,11 +14,11 @@ include('login-check.php');
 <div class="menu text-center">
 <div class="wrapper">
 <ul>
-    <li><a href="index.php">Home</a></li>
-    <li><a href="manage-admin.php">Admin</a></li>
-    <li><a href="manage-category.php">Category</a></li>
-    <li><a href="manage-food.php">Food</a></li>
-    <li><a href="manage-order.php">Order</a></li>
+    <li><a href="../admin/index.php">Home</a></li>
+    <li><a href="../admin/manage-admin.php">Admin</a></li>
+    <li><a href="../admin/manage-category.php">Category</a></li>
+    <li><a href="../admin/manage-food.php">Food</a></li>
+    <li><a href="../admin/manage-order.php">Order</a></li>
     <li><a href="logout.php">Logout</a></li>
 </ul>
 </div>
