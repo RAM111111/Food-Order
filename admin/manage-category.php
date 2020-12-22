@@ -11,7 +11,7 @@
     }
      ?>
 <br><br>
-    <a href="../category/add-category.php" class="btn-primary">Add category</a>
+    <a href="../category/add_category.php" class="btn-primary">Add category</a>
     <br><br><br>
     <table class="tbl-full">
       <tr>
