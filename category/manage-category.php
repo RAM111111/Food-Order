@@ -8,8 +8,9 @@
     if(isset($_SESSION['add_cat'])){
       echo $_SESSION['add_cat'];
       unset($_SESSION['add_cat']);
-    }
+
      ?>
+
 <br><br>
     <a href="../category/add_category.php" class="btn-primary">Add category</a>
     <br><br><br>
@@ -53,7 +54,7 @@
                 <td><?php echo $featured;?></td>
                 <td><?php echo $active ;?></td>
                 <td><a href="#" class="btn-secondary">update Admin</a>
-                    <a href="#" class="btn-danger">Delete Admin</a></td>
+                    <a href="../category/delet_category.php" class="btn-danger">Delete Admin</a></td>
               </tr>
 
               <?php
