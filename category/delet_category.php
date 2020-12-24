@@ -30,7 +30,7 @@ if(isset($_GET['id']) AND isset($_GET['image_name'])){
 
   $res = mysqli_query($con,$sql);
   if($res==true){
-    $_SESSION['delete'] = "<div class = 'success'> delete successfuly</div>";;
+    $_SESSION['delete'] = "<div class = 'success'> delete successfuly</div>";
     header('location:'.URL.'category/manage-category.php');
   }else{
     $_SESSION['delete'] = "<div class = 'error'> delete feild</div>";;

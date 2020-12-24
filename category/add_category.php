@@ -27,22 +27,26 @@
           <td>title</td>
           <td> <input type="text" name="title" placeholder="Enter title"></td>
         </tr>
-        <tr>
+
 
           <tr>
             <td>image</td>
             <td> <input type="file" name="img" ></td>
           </tr>
 
-          <td>featured</td>
-          <td> <input type="radio" name="featured" value="Yes"> Yes </td>
-          <td> <input type="radio" name="featured" value="No"> No </td>
+          <td>Featured</td>
+          <td>
+      <input type="radio" name="featured" value="Yes"> Yes
+      <input type="radio" name="featured" value="No"> No
+          </td>
         </tr>
 
         <tr>
-          <td>active</td>
-          <td> <input type="radio" name="active" value="Yes"> Yes </td>
-          <td> <input type="radio" name="active" value="No"> No </td>
+          <td>Active</td>
+          <td>
+      <input type="radio" name="active" value="Yes"> Yes
+      <input type="radio" name="active" value="No"> No
+          </td>
         </tr>
 
         <tr>

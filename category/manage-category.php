@@ -18,6 +18,11 @@
     unset($_SESSION['delete']);
 
 }
+if(isset($_SESSION['no_category'])){
+  echo $_SESSION['no_category'];
+  unset($_SESSION['no_category']);
+
+}
      ?>
 
 <br><br>
@@ -54,7 +59,7 @@
                 <td><?php
                 if( $image_name!= ""){
                   ?>
-                  <img src="<?php echo URL; ?>images/category/<?php echo $image_name; ?>" width="100px">
+                  <img src="<?php echo URL; ?>images/category/<?php echo $image_name; ?>" width="100px" height="75px" >
                   <?php
                 }else {
                   echo "<div class = 'error'> img not added </div>" ;
@@ -62,7 +67,7 @@
                 ?></td>
                 <td><?php echo $featured;?></td>
                 <td><?php echo $active ;?></td>
-                <td><a href="#" class="btn-secondary">update Admin</a>
+                <td><a href="../category/update_category.php?id=<?php echo $id; ?>" class="btn-secondary">update Admin</a>
                     <a href="../category/delet_category.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name ;?>" class="btn-danger">Delete Admin</a></td>
               </tr>
 
