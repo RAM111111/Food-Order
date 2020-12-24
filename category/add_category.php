@@ -74,26 +74,27 @@ if(isset($_POST['active'])){
   $active="No";
 }
 
-if(isset($_FILES['img']['name'])){
-  $img_n = $_FILES['img']['name'];
+// $img_n = "";
+//
+// print_r($_FILES['img']);
+// die();
 
+if(($_FILES['img']['name']) !=''){
+$img_n = $_FILES['img']['name'];
 $ex = end(explode('.',$img_n));
 $img_n = "food_category".rand(000,999).'.'.$ex;
 
   $sp = $_FILES['img']['tmp_name'];
   $des = "../images/category/".$img_n;
   $up = move_uploaded_file($sp,$des);
-
-
-
-
   if($up==false){
     $_SESSION['uploud'] = "<div class = 'error'> uploud feild</div>";;
     header('location:'.URL.'category/add_category.php');
+    die();
   }
 
 }else {
-$img_n = '';
+$img_n = "";
 }
 $sql = "INSERT INTO tbl_category SET
 title = '$title',
