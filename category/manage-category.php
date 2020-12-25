@@ -23,6 +23,26 @@ if(isset($_SESSION['no_category'])){
   unset($_SESSION['no_category']);
 
 }
+
+if(isset($_SESSION['update'])){
+  echo $_SESSION['update'];
+  unset($_SESSION['update']);
+
+}
+
+if(isset($_SESSION['uploud'])){
+  echo $_SESSION['uploud'];
+  unset($_SESSION['uploud']);
+
+}
+
+if(isset($_SESSION['feild_r'])){
+  echo $_SESSION['feild_r'];
+  unset($_SESSION['feild_r']);
+
+}
+
+
      ?>
 
 <br><br>
