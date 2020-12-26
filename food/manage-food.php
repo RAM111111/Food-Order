@@ -12,6 +12,16 @@
         echo $_SESSION['add'];
         unset($_SESSION['add']);
       }
+    }
+    if(isset($_SESSION['delete'])){
+      echo $_SESSION['delete'];
+      unset($_SESSION['delete']);
+    }
+
+    if(isset($_SESSION['delete-1'])){
+      echo $_SESSION['delete-1'];
+      unset($_SESSION['delete-1']);
+    }
      ?>
     <br><br>
     <a href="../food/add_food.php" class="btn-primary">Add Food</a>
@@ -57,7 +67,7 @@
               <td><?php echo $featured; ?> </td>
               <td><?php echo $active; ?></td>
               <td><a href="#" class="btn-secondary">update Admin</a>
-                  <a href="#" class="btn-danger">Delete Admin</a></td>
+                  <a href="../food/delete_food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Admin</a></td>
             </tr>
 
             <?php
