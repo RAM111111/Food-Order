@@ -2,7 +2,17 @@
 <div class="main-content">
   <div class="wrapper">
     <h1>Manage Food</h1>
-
+    <br><br>
+    <?php
+      if(isset($_SESSION['uploade'])){
+        echo $_SESSION['uploade'];
+        unset($_SESSION['uploade']);
+      }
+      if(isset($_SESSION['add'])){
+        echo $_SESSION['add'];
+        unset($_SESSION['add']);
+      }
+     ?>
     <br><br>
     <a href="../food/add_food.php" class="btn-primary">Add Food</a>
     <br><br><br>

@@ -2,6 +2,14 @@
 <div class="main-content">
   <div class="wrapper">
     <h1>Add Food</h1>
+    <br><br>
+
+      <?php
+        if(isset($_SESSION['uploud'])){
+          echo $_SESSION['uploud'];
+          unset($_SESSION['uploud']);
+        }
+       ?>
 
     <br><br>
     <form  action="" method="post" enctype="multipart/form-data">
@@ -53,10 +61,7 @@
                ?>
                <option value="<?php echo $id; ?>"><?php echo $title; ?></option>
                <?php
-             } {
-               // code...
              }
-
            }else {
              ?>
              <option value="0">no category found </option>
@@ -64,8 +69,6 @@
            }
 
              ?>
-            <!-- <option value="1">food</option>
-            <option value="2">snak</option> -->
           </select>
           </td>
         </tr>
@@ -96,13 +99,13 @@
     </form>
 
     <?php
-     if ($_POST['submit']) {
+     if(isset($_POST['submit'])) {
 
-       $id=$_POST['id'];
        $title=$_POST['title'];
-       $description=$_POST['$description'];
+       $description=$_POST['description'];
        $price=$_POST['price'];
-       $category=$_POST['$category'];
+       $category=$_POST['category'];
+
 
 
        if(isset($_POST['featured'])){
@@ -112,9 +115,60 @@
        }
 
        if(isset($_POST['active'])){
-         $featured=$_POST['active'];
+         $active=$_POST['active'];
        }else {
-         $featured="No";
+         $active="No";
+       }
+
+       // echo $title ;
+       // echo $description;
+       // echo $price;
+       // echo $img_n;
+       // echo $category;
+       // echo $featured;
+       // echo $active;
+       //
+       // die();
+
+       if(($_FILES['img']['name']) !=''){
+       $img_n = $_FILES['img']['name'];
+       $ex = end(explode('.',$img_n));
+       $img_n = "food_new".rand(000,999).'.'.$ex;
+
+         $sp = $_FILES['img']['tmp_name'];
+         $des = "../images/food/".$img_n;
+         $up = move_uploaded_file($sp,$des);
+         if($up==false){
+           $_SESSION['uploud'] = "<div class = 'error'> uploud feild</div>";;
+           header('location:'.URL.'food/add_food.php');
+           die();
+         }
+
+       }else {
+       $img_n = "";
+       }
+
+
+
+       $sql2 = "INSERT INTO tbl_food SET
+        title = '$title',
+        description = '$description',
+        price = '$price',
+        image_name = '$img_n',
+        category_id  = '$category',
+        feature = '$featured',
+        active = '$active'
+       ";
+
+       $res2 = mysqli_query($con,$sql2);
+
+       if($res2==true){
+         $_SESSION['add'] = "<div class='success'>added successfuly</div>";
+         header('location:'.URL.'food/manage-food.php');
+
+       }else {
+         $_SESSION['add'] = "<div class='error'>added feild</div>";
+         header('location:'.URL.'food/manage-food.php');
        }
 
      }
