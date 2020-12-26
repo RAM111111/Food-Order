@@ -11,7 +11,7 @@
       if(isset($_SESSION['add'])){
         echo $_SESSION['add'];
         unset($_SESSION['add']);
-      }
+
     }
     if(isset($_SESSION['delete'])){
       echo $_SESSION['delete'];
@@ -73,7 +73,7 @@
             <?php
           }
         }else{
-          echo "<th><td colspan='7' class='error'>active</td></th>";
+          echo "<td colspan='7' class='error text-center'>no food added</td>";
         }
 
        ?>
