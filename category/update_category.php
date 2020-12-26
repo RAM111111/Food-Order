@@ -11,6 +11,7 @@ if(($_GET['id'])!= ''){
     $row = mysqli_fetch_assoc($res);
     $title = $row['title'];
     $image_current = $row['image_name'];
+
     $featured = $row['featured'];
     $active = $row['active'];
   }
@@ -96,17 +97,20 @@ if($image_current != ""){
 
 <?php
 if(isset($_POST['submit'])){
-echo "string";
+echo "string  ";
 
   $id = $_POST['id'];
   $title = $_POST['title'];
-  $image_name = $_POST['current_img'];
+  $image_current = $_POST['current_img'];
   $featured = $_POST['featured'];
   $active = $_POST['active'];
+
+  echo $image_current ;
   echo $id;
   echo $title;
   echo $image_name;
   echo $featured;
+
   echo $active;
 
 
@@ -125,15 +129,16 @@ if(($_FILES['img']['name']) != ""){
       die();
     }
 
-    $rp = "../images/category/".$image_current;
-    $re = unlink($rp);
+    if($image_current != ""){
+      $rp = "../images/category/".$image_current;
+      $re = unlink($rp);
 
-    if($re==false){
-      $_SESSION['feild_r']="<div class = 'error'> remove feild</div>";
-      header('location:'.URL.'category/manage-category.php');
-      die();
+      if($re==false){
+        $_SESSION['feild_r']="<div class = 'error'> remove feild</div>";
+        header('location:'.URL.'category/manage-category.php');
+        die();
+      }
     }
-
 
   }else {
   $image_name = $image_current;
@@ -148,16 +153,16 @@ if(($_FILES['img']['name']) != ""){
    WHERE id = '$id'
   ";
 
-  $res88 = mysqli_query($con,$sql88);
+    $res88 = mysqli_query($con,$sql88);
 
-// if($res88=true){
-//     $_SESSION['update']= "<div class = 'success'> updated successfuly</div>"
-//     header('location:'.URL.'category/manage-category.php');
-// }
-//else {
-//     $_SESSION['update']= "<div class = 'error'> updated feild</div>"
-//     header('location:'.URL.'category/update_category.php');
-// }
+if($res88==true){
+    $_SESSION['update']= "<div class = 'success'> updated successfuly</div>";
+    header('location:'.URL.'category/manage-category.php');
+}
+else {
+    $_SESSION['update']= "<div class = 'error'> updated feild</div>";
+    header('location:'.URL.'category/update_category.php');
+}
 
 }
  ?>
