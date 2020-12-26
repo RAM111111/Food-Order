@@ -1,10 +1,10 @@
-<?php include('partials/menu.php') ?>
+<?php include('../admin/partials/menu.php') ?>
 <div class="main-content">
   <div class="wrapper">
     <h1>Manage Food</h1>
 
     <br><br>
-    <a href="#" class="btn-primary">Add Food</a>
+    <a href="../food/add_food.php" class="btn-primary">Add Food</a>
     <br><br><br>
     <table class="tbl-full">
       <tr>
@@ -39,4 +39,4 @@
 
 
 </div>
-<?php include('partials/footer.php') ?>
+<?php include('../admin/partials/footer.php') ?>
