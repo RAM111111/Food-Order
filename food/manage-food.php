@@ -66,7 +66,7 @@
                ?></td>
               <td><?php echo $featured; ?> </td>
               <td><?php echo $active; ?></td>
-              <td><a href="../food/update_food.php" class="btn-secondary">update Admin</a>
+              <td><a href="../food/update_food.php?id=<?php echo $id; ?>" class="btn-secondary">update Admin</a>
                   <a href="../food/delete_food.php?id=<?php echo $id; ?>&image_name=<?php echo $image_name; ?>" class="btn-danger">Delete Admin</a></td>
             </tr>
 
