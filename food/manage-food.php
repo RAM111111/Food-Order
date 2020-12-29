@@ -17,6 +17,14 @@
       echo $_SESSION['delete'];
       unset($_SESSION['delete']);
     }
+    if(isset($_SESSION['delete_food'])){
+      echo $_SESSION['delete_food'];
+      unset($_SESSION['delete_food']);
+    }
+    if(isset($_SESSION['update'])){
+      echo $_SESSION['update'];
+      unset($_SESSION['update']);
+    }
 
     if(isset($_SESSION['delete-1'])){
       echo $_SESSION['delete-1'];

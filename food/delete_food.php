@@ -11,7 +11,7 @@ if($image_name != ""){
   $rm = unlink($path);
 
   if($rm == false){
-    $_SESSION['uploade'] = "<div class='error'>delete feild</div>";
+    $_SESSION['delete'] = "<div class='error'>delete feild</div>";
     header('location'.URL.'food/manage-food.php');
     die();
   }
@@ -22,15 +22,15 @@ $sql = "DELETE FROM tbl_food WHERE id='$id'";
 
 $res = mysqli_query($con,$sql);
 if($res==true){
-  $_SESSION['delete'] = "<div class = 'success'> delete successfuly</div>";
+  $_SESSION['delete_food'] = "<div class = 'success'> delete successfuly</div>";
   header('location:'.URL.'food/manage-food.php');
 }else{
-  $_SESSION['delete'] = "<div class = 'error'> delete feild</div>";;
+  $_SESSION['delete_food'] = "<div class = 'error'> delete feild</div>";;
   header('location:'.URL.'food/manage-food.php');
 }
 }
 else {
 header('location:'.URL.'food/manage-category.php');
 }
-/
+
  ?>

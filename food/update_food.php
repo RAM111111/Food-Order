@@ -27,6 +27,18 @@ else {
   <div class="wrapper">
     <h1>Update food</h1>
     <br><br>
+    <?php
+    if(isset($_SESSION['uploade'])){
+      echo $_SESSION['uploade'];
+      unset($_SESSION['uploade']);
+    }
+
+    if(isset($_SESSION['update'])){
+      echo $_SESSION['update'];
+      unset($_SESSION['update']);
+    }
+     ?>
+    <br><br>
     <form class="" action="" method="post" enctype="multipart/form-data">
       <table class="tbl-30">
 
@@ -42,8 +54,8 @@ else {
         <tr>
           <td>description</td>
           <td>
-           <textarea type="text" name="description" cols="30" rows="5" value="" >
-             <?php echo $description; ?>
+           <textarea type="text" name="description" cols="30" rows="5" value="">
+<?php echo $description; ?>
            </textarea>
           </td>
         </tr>
@@ -150,23 +162,32 @@ else {
 <?php include '../admin/partials/footer.php';?>
 
 <?php if(isset($_POST['submit'])){
-  $idd = $_POST['id'];
-  $title11 = $_POST['title11'];
+
+  $id11 = $_POST['id'];
+  $title11 = $_POST['title'];
   $description11 = $_POST['description'];
   $price11 = $_POST['price'];
   $image_current11 = $_POST['image_current'];
   $category11 = $_POST['category'];
-  $featured = $_POST['feature'];
-  $active = $_POST['active'];
+  $featured11 = $_POST['feature'];
+  $active11 = $_POST['active'];
+
+  // echo $id11;
+  // echo $title11;
+  // echo $description11;
+  // echo $price11;
+  // echo $image_current11;
+  // echo $category11;
+  // echo $featured11;
+  // echo $active11;
 
 
   if($_FILES['img']['name'] !== ""){
-    $image_name = $_FILES['img']['name'];
-    $ex = end(explode('.',$image_name));
-    $image_name = 'food_new'.rand(0000,9999).'.'.$ex;
+    $image_name11 = $_FILES['img']['name'];
+    $ex = end(explode('.',$image_name11));
+    $image_name11 = 'food_new'.rand(0000,9999).'.'.$ex;
     $src = $_FILES['img']['tmp_name'];
-    $des = "../images/food/".$image_name;
-
+    $des = "../images/food/".$image_name11;
     $up = move_uploaded_file($src,$des);
 
     if($up==false){
@@ -174,8 +195,8 @@ else {
       header('location'.URL.food/manage-food.php);
       die();
     }
-    if($image_current!=0){
-      $ip = "../images/food".$image_current;
+    if($image_current11 !=""){
+      $ip = "../images/food/".$image_current11;
       $rmm = unlink($ip);
 
       if($rmm==false){
@@ -184,32 +205,31 @@ else {
         die();
       }
     }
-
-  }else {
-    $image_name = $image_current;
+    }else {
+    $image_name11 = $image_current11;
   }
-  $sqlup = "UPDATE tbl_food SET
-  title='$title11',
-  description='$description11',
-  price='$price11',
-  image_name='$image_name',
-  category='$category11',
-  feature='$featured',
-  active='$active'
 
 
+    $sql88 = "UPDATE tbl_food SET
+     title = '$title',
+     description = '$description11',
+     price = '$price11',
+     image_name = '$image_name11',
+     category_id = '$category11',
+     feature = '$featured11',
+     active = '$active11'
+     WHERE id = '$id11'
+    ";
 
+      $res88 = mysqli_query($con,$sql88);
 
-  WHERE id='$idd'";
-
-  $resup = mysqli_query($sqlup);
-
-  if($resup==true){
-    $_SESSION['delete']= "<div class='success'>update succesfuly </div>";
-    header('location'.URL.food/manage-food.php);
-  }else{
-    $_SESSION['delete']= "<div class='error'>update error</div>";
-    header('location'.URL.food/manage-food.php);
+  if($res88==true){
+      $_SESSION['update']= "<div class = 'success'> updated successfuly</div>";
+      header('location:'.URL.'food/manage-food.php');
+  }
+  else {
+      $_SESSION['update']= "<div class = 'error'> updated feild</div>";
+      header('location:'.URL.'food/update_food.php');
   }
 
 } ?>
