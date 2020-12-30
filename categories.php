@@ -17,9 +17,10 @@
                while ($row=mysqli_fetch_assoc($res)) {
                  $title=$row['title'];
                  $image = $row['image_name'];
+                 $id = $row['id']
 
                  ?>
-                 <a href="category-foods.html">
+                 <a href="category_food.php?category_id=<?php echo $id; ?>">
                  <div class="box-3 float-container">
                   <?php if($image==""){
                     echo "no category image added";

@@ -8,7 +8,7 @@
     <section class="food-search text-center">
         <div class="container">
 
-            <form action="food-search.html" method="POST">
+            <form action="food_search.php" method="POST">
                 <input type="search" name="search" placeholder="Search for Food.." required>
                 <input type="submit" name="submit" value="Search" class="btn btn-primary">
             </form>
@@ -36,7 +36,7 @@
                 ?>
 
 
-                <a href="category-foods.html">
+                <a href="category_food.php?category_id=<?php echo $id; ?>">
                 <div class="box-3 float-container">
                   <?php
                    if($image==""){
